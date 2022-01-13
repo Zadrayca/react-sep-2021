@@ -23,8 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 .idea
-/src/logo.svg
-/src/setupTests.js
-/src/reportWebVitals.js
-/src/App.test.js
-/src/index.css
+
+
+
