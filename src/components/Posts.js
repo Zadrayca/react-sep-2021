@@ -1,7 +1,8 @@
 import {useEffect, useState} from "react";
 
+let allPosts = [];
 
-export default function Posts(props) {
+export const MyPosts = () => {
 
     let [posts, setPosts] = useState([]);
 
@@ -11,10 +12,15 @@ export default function Posts(props) {
             .then(value => {
                 setPosts(value);
             })
-
     }, []);
 
-    let result = posts.filter(post => post.userId === props.id);
+    allPosts = posts;
+    return allPosts;
+};
+
+export default function Posts(props) {
+
+    let result = allPosts.filter(post => post.userId === props.id);
 
     return (
         <div>

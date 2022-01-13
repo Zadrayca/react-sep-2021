@@ -1,10 +1,10 @@
 import {useEffect, useState} from "react";
 
+let allComments = [];
 
-export default function Comments(props) {
+export const MyComments = () => {
 
     let [comments, setComments] = useState([]);
-
 
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/comments')
@@ -12,10 +12,15 @@ export default function Comments(props) {
             .then(value => {
                 setComments(value);
             })
-
     }, []);
 
-    let result = comments.filter(comment => comment.postId >= props.id && comment.postId <= props.id + 9);
+    allComments = comments;
+    return allComments;
+};
+
+export default function Comments(props) {
+
+    let result = allComments.filter(comment => comment.postId >= props.id && comment.postId <= props.id + 9);
 
     return (
         <div>

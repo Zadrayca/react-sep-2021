@@ -1,7 +1,9 @@
 import {useEffect, useState} from "react";
 
+export let allUsers = [];
+export let propsArr = [];
 
-export default function Users(props) {
+export const MyUsers = () => {
 
     let [users, setUsers] = useState([]);
 
@@ -11,10 +13,22 @@ export default function Users(props) {
             .then(value => {
                 setUsers(value);
             })
-
     }, []);
 
-    let result = users.filter(user => user.id === props.id);
+    allUsers = users;
+    let botVar = 1;
+    propsArr = [];
+    allUsers.forEach(value => {
+        propsArr.push({id: value.id, bot: botVar})
+        botVar +=10;
+    })
+
+    return allUsers;
+};
+
+export default function Users(props) {
+
+    let result = allUsers.filter(user => user.id === props.id);
     return (
         <div>
             <ul>
