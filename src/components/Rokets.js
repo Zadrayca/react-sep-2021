@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 
 
-export default function Rokets(props) {
+export default function Rokets() {
 
     let [rokets, setRokets] = useState([]);
 
@@ -23,7 +23,7 @@ export default function Rokets(props) {
                 result.map(value =>
                 <div className={'bigBox'} key={count+=1}>
                     <div className={'miniBox'}>
-                        <div>{value.mission_name}</div>
+                        <div><h2>{value.mission_name}</h2></div>
                         <div>{value.launch_year}</div>
                     </div>
                     <div className={'miniBox'}>
