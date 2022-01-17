@@ -1,7 +1,8 @@
 import {useEffect, useState} from "react";
 
-export let allUsers = [];
 export let propsArr = [];
+
+let allUsers = [];
 
 export const MyUsers = () => {
 
@@ -16,14 +17,17 @@ export const MyUsers = () => {
     }, []);
 
     allUsers = users;
+
     let botVar = 1;
+
     propsArr = [];
-    allUsers.forEach(value => {
+
+    users.forEach(value => {
         propsArr.push({id: value.id, bot: botVar})
         botVar +=10;
     })
 
-    return allUsers;
+    return users;
 };
 
 export default function Users(props) {
