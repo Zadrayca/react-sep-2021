@@ -1,0 +1,8 @@
+.miniBox {
+    background-color: cornflowerblue;
+    width: 45%;
+    height: 410px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
