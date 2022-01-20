@@ -1,24 +1,35 @@
-import './App.css';
+import css from'./App.module.css';
 
-import Main from "./components/Main";
-import {MyPosts} from "./components/Posts";
-import {propsArr, MyUsers} from "./components/Users";
-import {MyComments} from "./components/Comments";
+import Users from "./components/Users/Users";
+import UserDetails from "./components/UsersDetails/UserDetails";
+import Posts from "./components/Posts/Posts";
+import {useState} from "react";
 
 function App() {
-    MyPosts();
-    MyUsers();
-    MyComments();
+
+    const [user, setUser] = useState(null);
+
+    const getUser = (user) => {
+        setUser(user)
+        setUserId(null)
+    }
+
+    const [userId, setUserId] = useState(null);
+
+    const getUserId = (id) => {
+        setUserId(id)
+    }
 
     return (
-    <div>
-        <div key={propsArr.id}>
-            {
-                propsArr.map(value => <Main key={value.id} id={value.id} bot={value.bot}/>)
-            }
+        <div>
+            <div className={css.bigBox}>
+                <Users getUser={getUser}/>
+                {user && <UserDetails user={user} getUserId={getUserId}/>}
+            </div>
+            {userId && <Posts userId={userId}/>}
         </div>
-    </div>
-  );
+    )
+
 }
 
 export default App;
