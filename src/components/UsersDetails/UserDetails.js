@@ -1,4 +1,4 @@
-import css from './UserDetails.module.css'
+import css from "./UserDetails.module.css";
 
 const UserDetails = ({user, getUserId}) => {
 

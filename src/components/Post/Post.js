@@ -1,4 +1,4 @@
-import css from './Post.module.css'
+import css from "./Post.module.css";
 
 const Post = ({post}) => {
 
