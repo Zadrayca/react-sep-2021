@@ -1,7 +1,6 @@
 .miniBox {
     background-color: cornflowerblue;
-    width: 45%;
-    height: 410px;
+    height: 425px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

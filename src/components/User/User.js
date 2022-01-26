@@ -1,13 +1,12 @@
 import css from "./User.module.css";
 
-const User = ({user, getUser}) => {
+const User = ({user}) => {
 
-    const {id, name} = user;
+    const {id, name, username, email} = user;
 
     return (
         <div className={css.wrap}>
-            <div>{id}) {name}</div>
-            <button onClick={()=>getUser(user)}>Details</button>
+            <div>{id}) {name} -- {username} -- {email}</div>
         </div>
     );
 };
