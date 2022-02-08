@@ -1,33 +1,31 @@
-import {useState} from "react";
+import {Routes, Route, Navigate} from "react-router-dom";
 
-import css from "./App.module.css";
-import Users from "./components/Users/Users";
-import UserDetails from "./components/UsersDetails/UserDetails";
-import Posts from "./components/Posts/Posts";
+
+import {Layout} from "./components";
+import {PostCommentsPage, PostDetailsPage, PostsPage, UserDetailsPage, UserPostsPage, UsersPage} from "./pages";
 
 function App() {
 
-    const [user, setUser] = useState(null);
-
-    const getUser = (user) => {
-        setUser(user)
-        setUserId(null)
-    }
-
-    const [userId, setUserId] = useState(null);
-
-    const getUserId = (id) => {
-        setUserId(id)
-    }
 
     return (
-        <div>
-            <div className={css.bigBox}>
-                <Users getUser={getUser}/>
-                {user && <UserDetails user={user} getUserId={getUserId}/>}
-            </div>
-            {userId && <Posts userId={userId}/>}
-        </div>
+        <Routes>
+            <Route path={'/'} element={<Layout/>}>
+                <Route index element={<Navigate to={'users'}/>}/>
+
+                <Route path={'users'} element={<UsersPage/>}>
+                    <Route path={':id'} element={<UserDetailsPage/>}>
+                        <Route path={'post'} element={<UserPostsPage/>}/>
+                    </Route>
+                </Route>
+
+                <Route path={'posts'} element={<PostsPage/>}>
+                    <Route path={':id'} element={<PostDetailsPage/>}>
+                        <Route path={'comments'} element={<PostCommentsPage/>}/>
+                    </Route>
+                </Route>
+
+            </Route>
+        </Routes>
     )
 
 }

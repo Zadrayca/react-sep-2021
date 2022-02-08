@@ -1,24 +1,26 @@
 import {useEffect, useState} from "react";
+import {useParams} from "react-router-dom";
 
 import css from "./Posts.module.css";
-
-import {postService} from "../../services/post.service";
+import {postService} from "../../services";
 import Post from "../Post/Post";
 
-const Posts = ({userId}) => {
+const Posts = () => {
+    const {id} = useParams();
 
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        postService.getByUserId(userId).then(value => setPosts(value))
-    }, [userId]);
+        postService.getAllPosts().then(value => setPosts(value))
+    }, []);
 
+    let userPosts = posts.filter(post => post.userId.toString() === id)
 
     return (
         <div className={css.bigBox}>
-            {posts.map(post => <Post key={post.id} post={post}/>)}
+            {userPosts.map(post => <Post key={post.id} post={post}/>)}
         </div>
-    );
+    )
 };
 
 export default Posts;

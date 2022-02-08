@@ -1,13 +1,14 @@
+import {Link} from "react-router-dom";
+
 import css from "./User.module.css";
 
-const User = ({user, getUser}) => {
+const User = ({user}) => {
 
     const {id, name} = user;
 
     return (
         <div className={css.wrap}>
-            <div>{id}) {name}</div>
-            <button onClick={()=>getUser(user)}>Details</button>
+            <Link to={id.toString()} state={user}>{id}) {name}</Link>
         </div>
     );
 };

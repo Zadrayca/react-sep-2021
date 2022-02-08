@@ -1,8 +1,12 @@
+import {Link, useLocation} from "react-router-dom";
+
 import css from "./UserDetails.module.css";
 
-const UserDetails = ({user, getUserId}) => {
+const UserDetails = () => {
 
-    const {id, name, username, email, address: {street, suite, city, zipcode, geo}, phone, website, company} = user;
+    const {state} = useLocation();
+
+    const {id, name, username, email, address: {street, suite, city, zipcode, geo}, phone, website, company} = state;
 
     return (
         <div className={css.miniBox}>
@@ -37,7 +41,7 @@ const UserDetails = ({user, getUserId}) => {
                     </li>
                 </ul>
             </div>
-            <button onClick={() => getUserId(id)}>Posts</button>
+            <Link to={'post'} state={state}><button>Posts</button></Link>
         </div>
     );
 };

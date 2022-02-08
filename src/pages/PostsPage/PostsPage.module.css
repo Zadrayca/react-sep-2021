@@ -1,0 +1,11 @@
+.posts {
+    display: flex;
+    border: 1px solid black;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.outlet {
+    display: flex;
+    width: 68%;
+}

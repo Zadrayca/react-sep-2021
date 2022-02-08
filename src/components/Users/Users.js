@@ -1,10 +1,10 @@
 import {useEffect, useState} from "react";
 
 import css from "./Users.module.css";
-import {userService} from "../../services/user.service";
+import {userService} from "../../services";
 import User from "../User/User";
 
-const Users = ({getUser}) => {
+const Users = () => {
 
     const [users, setUsers] = useState([]);
 
@@ -14,7 +14,7 @@ const Users = ({getUser}) => {
 
     return (
         <div className={css.miniBox}>
-            {users.map(user => <User key={user.id} user={user} getUser={getUser}/>)}
+            {users.map(user => <User key={user.id} user={user}/>)}
         </div>
     );
 };

@@ -1,8 +1,9 @@
-.miniBox {
+.bigBox {
     background-color: cornflowerblue;
     width: 30%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     border: 1px solid black;
+    overflow: hidden;
+    overflow-y: auto;
 }
