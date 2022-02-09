@@ -1,0 +1,19 @@
+.miniBox {
+    width: 47%;
+    height: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 5px;
+    border: solid black 1px;
+    border-radius: 3px;
+    padding: 3px;
+}
+
+.miniBox button {
+    height: 23px;
+    width: 65px;
+    border-radius: 5px;
+    border-color: #074dca;
+    background-color: #abc1ff;
+}

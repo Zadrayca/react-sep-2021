@@ -3,6 +3,8 @@ import {Routes, Route, Navigate} from "react-router-dom";
 
 import {Layout} from "./components";
 import {PostCommentsPage, PostDetailsPage, PostsPage, UserDetailsPage, UserPostsPage, UsersPage} from "./pages";
+import {AlbumsPage} from "./pages/AlbumsPage/AlbumsPage";
+import {PhotosPage} from "./pages/PhotosPage/PhotosPage";
 
 function App() {
 
@@ -16,6 +18,11 @@ function App() {
                     <Route path={':id'} element={<UserDetailsPage/>}>
                         <Route path={'post'} element={<UserPostsPage/>}/>
                     </Route>
+
+                    <Route path={':id/albums'} element={<AlbumsPage/>}>
+                        <Route path={':albumId/photos'} element={<PhotosPage/>}/>
+                    </Route>
+
                 </Route>
 
                 <Route path={'posts'} element={<PostsPage/>}>

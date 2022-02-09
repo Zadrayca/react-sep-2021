@@ -8,7 +8,8 @@ const User = ({user}) => {
 
     return (
         <div className={css.wrap}>
-            <Link to={id.toString()} state={user}>{id}) {name}</Link>
+            <div><Link to={id.toString()} state={user}>{id}) {name}</Link></div>
+            <div><Link to={`${id.toString()}/albums`} state={user}><button>Albums</button></Link></div>
         </div>
     );
 };
