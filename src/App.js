@@ -2,9 +2,7 @@ import {Routes, Route, Navigate} from "react-router-dom";
 
 
 import {Layout} from "./components";
-import {PostCommentsPage, PostDetailsPage, PostsPage, UserDetailsPage, UserPostsPage, UsersPage} from "./pages";
-import {AlbumsPage} from "./pages/AlbumsPage/AlbumsPage";
-import {PhotosPage} from "./pages/PhotosPage/PhotosPage";
+import {PostCommentsPage, PostDetailsPage, PostsPage, UserDetailsPage, UserPostsPage, UsersPage, AlbumsPage, PhotosPage} from "./pages";
 
 function App() {
 

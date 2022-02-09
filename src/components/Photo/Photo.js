@@ -13,7 +13,7 @@ const Photo = ({photo}) => {
                 <div>AlbumId: {albumId}</div>
                 <div>Title: {title}</div>
             </div>
-            <div><img src={thumbnailUrl} alt="photo"/></div>
+            <div><img src={thumbnailUrl} alt="photos"/></div>
         </div>
     );
 };
