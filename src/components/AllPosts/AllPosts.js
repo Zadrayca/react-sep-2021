@@ -13,8 +13,6 @@ const AllPosts = () => {
         postService.getAllPosts().then(value => setPosts(value))
     }, []);
 
-
-
     return (
         <div className={css.bigBox}>
             {posts.map(post => <AllPost key={post.id} post={post}/>)}

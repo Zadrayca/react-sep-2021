@@ -2,5 +2,5 @@ import {axiosService} from "./axios.service";
 import {urls} from "../configs";
 
 export const commentService = {
-    getCommentsByPost: () => axiosService.get(urls.comments).then(value => value.data)
+    getCommentsByPost: (id) => axiosService.get(`${urls.comments}?postId=${id}`).then(value => value.data)
 }

@@ -12,14 +12,12 @@ const Comments = () => {
     const [comments, setComments] = useState([]);
 
     useEffect(() => {
-        commentService.getCommentsByPost().then(value => setComments(value))
-    }, []);
-
-    let postsComments = comments.filter(comment => comment.postId.toString() === id)
+        commentService.getCommentsByPost(id).then(value => setComments(value))
+    }, [id]);
 
     return (
         <div className={css.bigBox}>
-            {postsComments.map(comment => <Comment key={comment.id} comment={comment}/>)}
+            {comments.map(comment => <Comment key={comment.id} comment={comment}/>)}
         </div>
     )
 };

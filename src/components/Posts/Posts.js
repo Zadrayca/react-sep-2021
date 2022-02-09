@@ -11,14 +11,12 @@ const Posts = () => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        postService.getAllPosts().then(value => setPosts(value))
-    }, []);
-
-    let userPosts = posts.filter(post => post.userId.toString() === id)
+        postService.getByUserId(id).then(value => setPosts(value))
+    }, [id]);
 
     return (
         <div className={css.bigBox}>
-            {userPosts.map(post => <Post key={post.id} post={post}/>)}
+            {posts.map(post => <Post key={post.id} post={post}/>)}
         </div>
     )
 };
