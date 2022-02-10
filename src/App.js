@@ -1,62 +1,35 @@
 import {useReducer} from "react";
 
+import css from "./App.module.css"
+import {Forms} from "./Components/Forms/Forms";
+import {Cats} from "./Components/Cats/Cats";
+import {Dogs} from "./Components/Dogs/Dogs";
+
 const reducer = (state, action) => {
     switch (action.type) {
-        case 'inc1':
-            return {...state, count1: state.count1 + 1};
-        case 'dec1':
-            return {...state, count1: state.count1 - 1};
-        case 'reset1':
-            return {...state, count1: state.count1 = 0};
-        case 'inc2':
-            return {...state, count2: state.count2 + 1};
-        case 'dec2':
-            return {...state, count2: state.count2 - 1};
-        case 'reset2':
-            return {...state, count2: state.count2 = 0};
-        case 'inc3':
-            return {...state, count3: state.count3 + 1};
-        case 'dec3':
-            return {...state, count3: state.count3 - 1};
-        case 'reset3':
-            return {...state, count3: state.count3 = 0};
+        case 'ADD_CAT':
+            return {...state, cats: [...state.cats, {id:new Date().getTime(), name: action.payload.cat}]};
+        case 'ADD_DOG':
+            return {...state, dogs: [...state.dogs, {id:new Date().getTime(), name: action.payload.dog}]};
+        case 'DEL_CAT':
+            return {...state, cats: state.cats.filter(cat => cat.id !== action.payload.id)};
+        case 'DEL_DOG':
+            return {...state, dogs: state.dogs.filter(dog => dog.id !== action.payload.id)};
         default:
-            throw new Error('ERROR!!!')
+            return state;
     }
 }
 
-
 function App() {
 
-    const [state, dispatch] = useReducer(reducer, {count1: 0, count2: 0, count3: 0});
+    const [{cats, dogs}, dispatch] = useReducer(reducer, {cats: [], dogs: []});
 
     return (
-        <div>
-            <div>
-                <div>{state.count1}</div>
-                <div>
-                    <button onClick={() => dispatch({type: 'inc1'})}>INC</button>
-                    <button onClick={() => dispatch({type: 'dec1'})}>DEC</button>
-                    <button onClick={() => dispatch({type: 'reset1'})}>RESET</button>
-                </div>
-            </div>
-
-            <div>
-                <div>{state.count2}</div>
-                <div>
-                    <button onClick={() => dispatch({type: 'inc2'})}>INC</button>
-                    <button onClick={() => dispatch({type: 'dec2'})}>DEC</button>
-                    <button onClick={() => dispatch({type: 'reset2'})}>RESET</button>
-                </div>
-            </div>
-
-            <div>
-                <div>{state.count3}</div>
-                <div>
-                    <button onClick={() => dispatch({type: 'inc3'})}>INC</button>
-                    <button onClick={() => dispatch({type: 'dec3'})}>DEC</button>
-                    <button onClick={() => dispatch({type: 'reset3'})}>RESET</button>
-                </div>
+        <div className={css.bigBox}>
+            <div><Forms dispatch={dispatch}/></div>
+            <div className={css.catDog}>
+                <Cats cats={cats} dispatch={dispatch}/>
+                <Dogs dogs={dogs} dispatch={dispatch}/>
             </div>
         </div>
     );

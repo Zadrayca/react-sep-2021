@@ -1,0 +1,13 @@
+.bigBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.catDog {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    width: 30%;
+    justify-content: space-between;
+}
