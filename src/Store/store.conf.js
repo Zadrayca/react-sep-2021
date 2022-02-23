@@ -4,7 +4,7 @@ import carReducer from "./car.slice";
 
 const store = configureStore({
     reducer: {
-        carReducer
+        carReducer:carReducer
     }
 })
 
